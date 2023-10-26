@@ -5,7 +5,7 @@ const creditCardFormValidation = () => {
   return Yup.object({
     fullName: Yup.string()
       .matches(
-        /^[a-zA-Z]+(\s[a-zA-Z]+)+$/,
+        /^[a-zA-ZğüşıöçĞÜŞİÖÇ]+(\s[a-zA-ZğüşıöçĞÜŞİÖÇ]+)+$/,
         "Ad Soyad yalnızca harf ve boşluk içerebilir"
       )
       .min(3, "Ad Soyad alanına en az 3 karakter girmelisiniz")
