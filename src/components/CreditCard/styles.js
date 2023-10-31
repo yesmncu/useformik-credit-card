@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   width: 100%;
   display: flex;
   align-items: center;
@@ -28,9 +28,26 @@ const Col12 = styled.div`
   width: 100%;
 `;
 
+const Success = styled.div`
+ position:relative;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ gap: ${(props) => props.theme.SPACING02};
+ font-size:20px;
+ font-weight:500;
+
+ svg { 
+   font-size:82px;
+   color: ${(props) => props.theme.SUCCESS}
+  }
+
+`;
+
 export {
   Wrapper,
   Inner,
   Row,
   Col12,
+  Success
 };
