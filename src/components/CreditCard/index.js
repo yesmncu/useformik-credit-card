@@ -25,6 +25,7 @@ import {
 
 const CreditCard = () => {
 
+  const [focus, setFocus] = useState("");
   const [formSuccess, setFormSuccess] = useState(false);
 
   const formik = useFormik({
@@ -35,7 +36,7 @@ const CreditCard = () => {
       cvc: "",
     },
     validationSchema: creditCardFormValidation(),
-    onSubmit: async (values) => {
+    onSubmit: async () => {
       setFormSuccess(true);
     },
   });
@@ -49,6 +50,7 @@ const CreditCard = () => {
               <Cards
                 cvc={formik.values.cvc}
                 expiry={formik.values.expiry}
+                focused={focus}
                 name={formik.values.fullName}
                 number={formik.values.number}
                 preview={false}
@@ -62,6 +64,7 @@ const CreditCard = () => {
                 placeholder="Kart Sahibi Ad Soyad"
                 name="fullName"
                 value={formik.values.fullName}
+                onFocus={(e) => setFocus(e.target.name)}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={formik.touched.fullName && formik.errors.fullName}
@@ -79,6 +82,7 @@ const CreditCard = () => {
                 value={formik.values.number}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                onFocus={(e) => setFocus(e.target.name)}
               >
                 {(inputProps) => (
                   <Input
@@ -107,6 +111,7 @@ const CreditCard = () => {
                 value={formik.values.expiry}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                onFocus={(e) => setFocus(e.target.name)}
               >
                 {(inputProps) => (
                   <Input
@@ -134,6 +139,7 @@ const CreditCard = () => {
                 value={formik.values.cvc}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                onFocus={(e) => setFocus(e.target.name)}
               >
                 {(inputProps) => (
                   <Input
